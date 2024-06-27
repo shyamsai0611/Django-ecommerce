@@ -1,0 +1,40 @@
+{% extends 'theme.html' %}
+
+{% block main %}
+    <div class="container">
+        <div class="row m-5">
+            <div class="col-lg-6 mx-auto">
+                <div class="border shadow p-5 ">
+                    <h1>Login page</h1>
+
+                    {% if error %}
+                        <div>
+                            <div class="alert alert-warning alert-dismissible fade show text-center" role="alert">
+                                <strong>{{error}}</strong> 
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                              </div>
+                        </div>
+                    {% endif %}
+                    <form method="POST" accept="login" class="border">
+                        {% csrf_token %}
+                        <div class="form-group m-2">
+                            <label >Email ID</label>
+                            <input type="email" name="email" class="form-control">
+                        </div>
+                        <div class="form-group m-2">
+                            <label >Password</label>
+                            <input type="password" name="password" class="form-control">
+                        </div>
+
+                        <div class="form-group m-2">
+                            <input type="submit" value="Login" class="form-control btn btn-outline-success">
+
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
